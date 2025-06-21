@@ -4,7 +4,7 @@
 ##
 ## This program is designed to take and store the names of 15 trainers and the number of new members they have
 ## enrolled in the gym. The program then outputs 3 different categories, 0-5, 6-10, and 11-15, with the total amount
-## of trainers for each applicable category. Additionally, I have added some cosmetic things using os and time libraries
+## of trainers for each applicable category. Additionally, I have added some cosmetic effects using os and time libraries
 ## to add some "flare" to be more human-relatable (delays between prompts, color changing for errors, etc.).#
 
 # Imports the os and time libraries so we can use some good ol' fashioned terminal commands for visual cleanup.
@@ -29,7 +29,7 @@ def inputValidation(prompt):
 
     ## Added input validation to make sure the user is entering appropriate data types.
     ## Added a way to control the entry values to keep them within range of the assignment.
-    ## If the user enters a value that is outside of the range 5 times it will assign the value 0 and ask for the next name.
+    ## If the user enters a value that is outside of the range 5 times, it will assign the value 0 and ask for the next name.
     attemptsRemaining = 5
     while True:
         try:
@@ -38,24 +38,24 @@ def inputValidation(prompt):
             os.system('color 04')
             if attemptsRemaining == 0:
                 clearScreen()
-                print(f"You reached the maximum attempts and your input was saved as 0.")
+                print(f"You have reached the maximum attempts and your input was saved as 0.")
                 value = 0
                 time.sleep(3)
                 break
             clearScreen()
-            print(f"That is not a valid entry for NEW MEMBERS. If you reach 5 invalid attempts your input will be saved as 0.\n\n{attemptsRemaining} attempt(s) remaining.")
+            print(f"That is not a valid entry for NEW MEMBERS. If you reach 5 invalid input attempts, your input will be saved as 0.\n\n{attemptsRemaining} attempt(s) remaining.")
 
             attemptsRemaining = attemptsRemaining - 1
             continue
         if value < 0 or value > 15:
             os.system('color 04')
             if attemptsRemaining == 0:
-                print((f"You reach the maximum attempts and your input was saved as 0."))
+                print((f"You have reached the maximum allowance of invalid attempts and your input was saved as 0."))
                 value = 0
                 time.sleep(3)
                 break
             clearScreen()
-            print(f"Your number must be no less than 0 and no greater than 15. If you reach 5 invalid attempts your input will be saved as 0.\n\n{attemptsRemaining} attempt(s) remaining.")
+            print(f"Your number must be no less than 0 and no greater than 15. If you reach 5 invalid attempts, your input will be saved as 0.\n\n{attemptsRemaining} attempt(s) remaining.")
             time.sleep(1)
             attemptsRemaining = attemptsRemaining - 1
             continue
@@ -82,7 +82,7 @@ def userPrompts():
     MAX_ENTRIES = 15
     while counter <= MAX_ENTRIES:
         os.system('color 06')
-        trainerLastName = input(f"(Name Counter: {counter}) Please enter the LAST NAME of the TRAINER or -1 to stop the program and calculate the categories: ")
+        trainerLastName = input(f"(Name Counter: {counter}) Please enter the LAST NAME of the TRAINER, or -1 to stop the program and calculate the categories: ")
         if trainerLastName == "-1":
             break
         trainerLastNameList.append(trainerLastName)
@@ -146,6 +146,9 @@ def optionalTrainerOutput():
          clearScreen()
          programExit()
     return
+
+
+## Actionable program is below, called upon in sections (functions defined above). This gives a better idea of how each segment is used.
 
 ## Welcome message for the program.
 welcomeMessage()
